@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <table class="table table-hover" style="background-color: transparent;">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Website Name</th>
+                <th>Website Logo</th>
+                <th>URL</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let website of websites; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ website.Name }}</td>
+                <td>
+                    <img [width]="100" [height]="50" 
+                    [src]="profile
+                        ? 'https://couponcouzin.com/backend/couponcouzin/app/src/website/' + website.postimage
+                        : '/img/avatars/3.png'" alt="image" class="size-50 rounded-22 object-cover" />
+                </td>
+                <td><a [href]="website.urlpath" target="_blank">{{ website.Name}}.com</a></td>
+                <td>
+                    <button class="btn btn-danger mr-5 pr-5" (click)="deleteItem(website._id)"> 🗑️ </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="row custom-grid">
+        <div class="card" *ngFor="let p of posterImage">
+            <div class="card-body">
+                <img [src]="profile
+                ? 'https://couponcouzin.com/backend/couponcouzin/app/src/banner/' + p.bannerimage
+                : '/img/avatars/3.png'" alt="image"/>
+            </div>
+            <div class="card-footer">
+                <button class="btn" (click)="deleteItem(p._id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

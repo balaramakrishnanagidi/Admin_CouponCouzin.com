@@ -1,0 +1,21 @@
+<div class="popup-container">
+    <h2>Add Website</h2>
+    <form (ngSubmit)="submitForm()">
+        <label for="name"> <b> WEBSITE NAME: </b> </label>
+        
+            <input type="text" id="name" name="Name" style="width: 100%;"
+            [(ngModel)]="website.Name" required>
+        <label for="name_input" style="padding-left: 10px;"> *website name is required </label>
+        
+        <label for="image"> <b> WEBSITE LOGO: </b></label>
+            <div class="image-preview">
+                <input type="file" id="image" name="image" (change)="handleImageUpload($event)" accept="image/*" required>
+                <img *ngIf="website.image" [src]="imagePreview" alt="Image Preview">
+                <label for="image_input" *ngIf="!website.image"> *image is required </label>
+            </div>
+        <label for="url"><b>URL:</b></label>
+        <input type="url" id="urlpath" name="urlpath" [(ngModel)]="website.urlpath" required>
+        <label for="url_input" style="padding-left: 10px;"> *URL is required </label>
+        <button type="submit" type="submit" >Add</button>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+.container{
+    background-color: transparent;
+}
+
+.container .table.table-hover{
+    background-color: transparent;
+    border-collapse: collapse;
+    text-align: center;
+    border-color: 1px solid transparent;
+    
+}
+.container .table.table-hover th{
+    background-color: transparent;
+    padding: 15px;
+    border-color: transparent;
+    font-size: larger;
+}
+

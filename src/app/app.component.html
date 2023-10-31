@@ -1,0 +1,20 @@
+<div class="interface md-6">
+  <div class="app-background"></div>
+<nav class="nav">
+  <div id="mySideNav" class="sideNav">
+    <app-side-nav></app-side-nav>
+  </div>
+  <div class="admin">
+    <h3> Welcome To Admin </h3>
+  </div>
+  <div class="signout" *ngIf="loggedIn">
+    <button class="btn" (click)="logout()">
+      <img src="assets\signout.png" alt="error" height="25" width="25">
+      Logout
+    </button>
+  </div>
+</nav>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+</div>

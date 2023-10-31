@@ -1,0 +1,106 @@
+.sidenav {
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidenav.open {
+    width: 250px;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* .openbtn {
+    font-size: 40px;
+    cursor: pointer;
+} */
+
+ul li {
+    display: flex;
+}
+
+ul li a{
+    padding-block: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+/* popup */
+
+.btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    background-color: rgb(245, 245, 183);
+}
+
+/* Styles for the hamburger icon */
+span {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* DropDowns */
+
+.dropdowns {
+    position: relative;
+    float: right; /* Align the dropdowns to the right */
+    margin-right: 20px; /* Add some space from the right edge */
+  }
+  
+  .dropdowns ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .dropdowns li {
+    display: flex; /* Use flex display for alignment */
+    align-items: center; /* Vertically center the content */
+    margin-bottom: 10px;
+  }
+  
+  .dropdowns select {
+    border: none; /* Remove border */
+    background-color: transparent; /* Make the background transparent */
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    flex: 1; /* Expand to fill available space */
+  }
+  
+  /* Style the selected option */
+  .dropdowns select option[selected] {
+    font-weight: bold;
+  }
+  
+  /* Style the dropdown arrow */
+  .dropdowns select::after {
+    content: '\25BE'; /* Unicode for down arrow */
+    margin-left: 10px; /* Add space between select and arrow */
+  }
+  
+  /* Hover styles */
+  .dropdowns select:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light gray on hover */
+  }
+  

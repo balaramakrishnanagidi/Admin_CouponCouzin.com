@@ -1,0 +1,15 @@
+<div class="popup-container">
+  <div class="modal-header heading">
+    <h2>Add Poster</h2>
+    <span> Prefered poster dimensions: <br> (1500*350) </span>
+  </div>
+  <div class="modal-body">
+    <input type="file" (change)="handleImageUpload($event)" accept="image/*" class="form-control" />
+    <input type="text" [(ngModel)]="poster.url" name="url" class="form-control" placeholder="URL" />
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" (click)="submitForm()">Add Poster</button>
+    <button class="btn btn-secondary" (click)="activeModal.dismiss('Cancel')">Cancel</button>
+  </div>
+
+</div>

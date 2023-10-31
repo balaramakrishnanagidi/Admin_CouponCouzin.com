@@ -1,0 +1,56 @@
+<div class="popup-container md-2">
+    <h2 style="padding-left: 35%;">Add Coupon</h2>
+    <form (ngSubmit)="submitForm()">
+        <label for="name" class="required"> <b> Coupon Name: </b> </label>
+        <input type="text" id="name" name="Name" [(ngModel)]="coupon.Name" required>
+
+        <label for="couponcode" class="required"><b>Coupon Code:</b></label>
+        <input type="text" id="couponcode" name="couponcode" [(ngModel)]="coupon.couponcode" required>
+
+        <label for="url" class="required"><b>URL:</b></label>
+        <input type="url" id="url" name="urlpath" [(ngModel)]="coupon.urlpath" required>
+
+
+        <label for="description" class="required"> <b> description </b> </label>
+        <input type="text" id="description" name="description" [(ngModel)]="coupon.description" required>
+
+        <label for="category" class="required"><b>Category:</b></label>
+        <select id="category" name="categorys" [(ngModel)]="coupon.maincategory" (change)="categoryChange()" required>
+            <option value="food">Food & Dining</option>
+            <option value="fashion">Fashion</option>
+            <option value="travel">Travel</option>
+            <option value="tv">TV,Audio/Video & Movies</option>
+            <option value="mobiles">Mobiles & Tablets</option>
+            <option value="beauty">Beauty & Health</option>
+            <option value="computer">Computers,Laptops & Gaming</option>
+            <option value="recharge">Recharge</option>
+            <option value="appliances">Appliances</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="camera">Cameras & Accessories</option>
+            <option value="kids">Kids,Babies & Toys</option>
+        </select>
+
+
+        <label for="subcategory" class="required"><b>Subcategory:</b></label>
+        <select id="subcategory" name="subcategory" [(ngModel)]="coupon.categorys" required>
+            <option *ngFor="let subcategory of subcategories" [value]="subcategory.name">{{ subcategory.name }}</option>
+        </select>
+
+
+
+
+        <label for="company" class="required"><b>Company:</b></label>
+        <select id="company" name="company" [(ngModel)]="coupon.company" required>
+            <option *ngFor="let website of websites" [value]="website.Name">{{ website.Name }}</option>
+        </select>
+
+        <label class="required"><b>Status:</b></label>
+        <label>
+            <input type="radio" name="status" value="active" [(ngModel)]="coupon.status" required> Active
+            <input type="radio" name="status" value="inactive" [(ngModel)]="coupon.status" required> Inactive
+        </label>
+
+
+        <button class="btn btn-primary mt-3">Add</button>
+    </form>
+</div>

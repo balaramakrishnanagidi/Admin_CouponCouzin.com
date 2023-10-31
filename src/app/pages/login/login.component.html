@@ -1,0 +1,17 @@
+<form #myForm = "ngForm" class="form" (ngSubmit) ="onSubmit()">
+    <div class="container-fluid">
+        
+        <h1 class="admin text-center text-dark mt-4"> Admin Login </h1>
+        
+        <hr>
+        <label class="mt-2" for="Email"> <b> Email </b> </label>
+        <input type="text" placeholder="Enter your email" name="email" id="email" required [(ngModel)]="email" >
+
+        <label for="password"> <b> password </b></label>
+        <input type="password" placeholder="Enter the password" name="password" id="password" required [(ngModel)]="password" >
+        
+       
+        <button type="submit" class="login" [disabled]="!myForm.valid" > Login </button>
+    </div>
+    
+</form>

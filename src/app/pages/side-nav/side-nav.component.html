@@ -1,0 +1,297 @@
+<div id="mySidenav" [ngClass]="{'sidenav': true, 'open': isSideNavOpen}">
+
+    <ul>
+        <li>
+            <a routerLink="home" routerLinkActive="active">
+                <h3> Dashboard</h3>
+            </a>
+            <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        </li>
+        <hr>
+        <li>
+            <div class="modal-header">
+                <button class="btn" (click)="openAddPosterpopup()">
+                    Add Poster </button>
+            </div>
+        </li>
+        <li>
+            <div class="modal-header">
+                <button class="btn" routerLink="posters" routerLinkActive="active">
+                    Posters </button>
+            </div>
+        </li>
+        <li>
+            <div class="modal-header">
+                <button class="btn" (click)="openAddWebsitePopup()">
+                    Add Website </button>
+            </div>
+        </li>
+        <li>
+            <div class="modal-header">
+                <button class="btn" routerLink="/websites" routerLinkActive="active"> Website </button>
+            </div>
+        </li>
+        <hr>
+        <div class="modal-header">
+            <button class="btn" routerLink="/allproducts" routerLinkActive="active" (click)="openAddProductPopup()"> Add
+                Product </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/allcoupons" routerLinkActive="active" (click)="openAddCouponPopup()"> Add
+                Coupon </button>
+        </div>
+        <hr>
+        <div class="modal-header">
+            <button class="btn" routerLink="/allcoupons" routerLinkActive="active">
+                <h5> All Coupons </h5>
+            </button>
+        </div>
+        <!-- coupon buttons -->
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('food')"> Food & Dining </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('fashion')"> Fashion </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('travel')"> Travel </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('tv')"> TV,Audio & Movies </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('mobiles')"> Mobiles & Tablets </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('beauty')"> Beauty & Health </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('computer')"> Computers & Gaming </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('recharge')"> Recharge </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('appliances')"> Appliances </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('entertainment')"> Entertainment </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('camera')"> Cameras & Accessories </button>
+        </div>
+        <div class="modal-header">
+            <button class="btn" routerLink="/getcoupons" routerLinkActive="active"
+                (click)="assignValueToVariable('kids')"> Kids,Babies & Toys </button>
+        </div>
+
+        <!-- coupon buttons end -->
+        <hr>
+        <button class="btn" routerLink="/allproducts" routerLinkActive="active">
+            <h5>ALL PRODUCTS</h5>
+        </button>
+        <br>
+        <div class="dropdowns">
+            <ul>
+                <li>
+
+                    <div class="list">
+
+                        <select id="maincategory1" name="maincategorys" [(ngModel)]="selectedFoodCategory"
+                            (ngModelChange)="storeSelectedCategory('food', selectedFoodCategory)">
+                            <option value="" selected disabled hidden><b>Food & Dining</b></option>
+                            <option value="food_ordering">food_ordering</option>
+                            <option value="drinks&beverages">drinks&beverages</option>
+                            <option value="pizza">pizza</option>
+                            <option value="grocery">grocery</option>
+                            <option value="restaurents">restaurents</option>
+                        </select>
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory2" name="maincategorys" [(ngModel)]="selectedFashionCategory"
+                        (ngModelChange)="storeSelectedCategory('fashion', selectedFashionCategory)">
+                        <option value="" selected disabled hidden><b>Fashion</b></option>
+                        <option value="clothing">clothing</option>
+                        <option value="footwear">footwear</option>
+                        <option value="bags&accessories">bags&accessories</option>
+                        <option value="watch&sunglasses">watch&sunglasses</option>
+                        <option value="travel_accessories">travel_accessories</option>
+                        <option value="lingerie">lingerie</option>
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory3" name="maincategorys" [(ngModel)]="selectedTravelCategory"
+                        (ngModelChange)="storeSelectedCategory('travel', selectedTravelCategory)">
+                        <option value="" selected disabled hidden><b>Travel</b></option>
+                        <option value="flight">flight</option>
+                        <option value="hotel">hotel</option>
+                        <option value="bus">bus</option>
+                        <option value="cabs">cabs</option>
+                        <option value="car_rentals">car_rentals</option>
+                        <option value="railway_bookings">railway_bookings</option>
+                        <option value="self_drive_cars">self_drive_cars</option>
+                        <option value="holiday">holiday</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory4" name="maincategorys" [(ngModel)]="selectedTvCategory"
+                        (ngModelChange)="storeSelectedCategory('tv', selectedTvCategory)">
+                        <option value="" selected disabled hidden><b>TV,Audio & Movies</b></option>
+                        <option value="on_demand_content">on_demand_content</option>
+                        <option value="televisions">televisions</option>
+                        <option value="movies&tv_shows">movies&tv_shows</option>
+                        <option value="audio&video">audio&video</option>
+                        <option value="cables&accessories">cables&accessories</option>
+                        <option value="music">music</option>
+                        <option value="DTH&internet_providers">DTH&internet_providers</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory5" name="maincategorys" [(ngModel)]="selectedMobilesCategory"
+                        (ngModelChange)="storeSelectedCategory('mobiles', selectedMobilesCategory)">
+                        <option value="" selected disabled hidden><b>Mobiles & Tablets</b></option>
+                        <option value="mobiles&tablet_accessories">mobiles&tablet_accessories</option>
+                        <option value="mobile">mobile</option>
+                        <option value="tablet">tablet</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory6" name="maincategorys" [(ngModel)]="selectedBeautyCategory"
+                        (ngModelChange)="storeSelectedCategory('beauty', selectedBeautyCategory)">
+                        <option value="" selected disabled hidden><b>Beauty & Health</b></option>
+                        <option value="personal_care&beauty">personal_care&beauty</option>
+                        <option value="makeup&cosmotics">makeup&cosmotics</option>
+                        <option value="perfumes&deos">perfumes&deos</option>
+                        <option value="nutrition">nutrition</option>
+                        <option value="medicines&health_checkups">medicines&health_checkups</option>
+                        <option value="health_devices">health_devices</option>
+                        <option value="eyewear">eyewear</option>
+
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory7" name="maincategorys" [(ngModel)]="selectedComputerCategory"
+                        (ngModelChange)="storeSelectedCategory('computer', selectedComputerCategory)">
+                        <option value="" selected disabled hidden><b>Computers & Gaming</b></option>
+                        <option value="computer_accessories">computer_accessories</option>
+                        <option value="laptops_monitors&desktops">laptops_monitors&desktops</option>
+                        <option value="gaming">gaming</option>
+                        <option value="software">software</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory8" name="maincategorys" [(ngModel)]="selectedRechargeCategory"
+                        (ngModelChange)="storeSelectedCategory('recharge', selectedRechargeCategory)">
+                        <option value="" selected disabled hidden><b>Recharge</b></option>
+                        <option value="mobile_recharge">mobile_recharge</option>
+                        <option value="bill_payments">bill_payments</option>
+                        <option value="DTH">DTH</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory9" name="maincategorys" [(ngModel)]="selectedAppliancesCategory"
+                        (ngModelChange)="storeSelectedCategory('appliances', selectedAppliancesCategory)">
+                        <option value="" selected disabled hidden><b>Appliances</b></option>
+                        <option value="home_aplliances">home_aplliances</option>
+                        <option value="kitchen">kitchen</option>
+                        <option value="personal_care">personal_care</option>
+                        <option value="cleaning_accessories">cleaning_accessories</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory10" name="maincategorys" [(ngModel)]="selectedEntertainmentCategory"
+                        (ngModelChange)="storeSelectedCategory('entertainment', selectedEntertainmentCategory)">
+                        <option value="" selected disabled hidden><b>Entertainment</b></option>
+                        <option value="movie_tickets">movie_tickets</option>
+                        <option value="streaming_music">streaming_music</option>
+                        <option value="theme_parks">theme_parks</option>
+                        <option value="indoor&outdoor_games">indoor&outdoor_games</option>
+                        <option value="online_games">online_games</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory11" name="maincategorys" [(ngModel)]="selectedCameraCategory"
+                        (ngModelChange)="storeSelectedCategory('camera', selectedCameraCategory)">
+                        <option value="" selected disabled hidden><b>Cameras & Accessories</b></option>
+                        <option value="cameras">cameras</option>
+                        <option value="camers_accessories">camers_accessories</option>
+
+                    </select>
+
+                </li>
+
+                <li>
+
+                    <select id="maincategory12" name="maincategorys" [(ngModel)]="selectedKidsCategory"
+                        (ngModelChange)="storeSelectedCategory('kids', selectedKidsCategory)">
+                        <option value="" selected disabled hidden><b>Kids,Babies & Toys</b></option>
+                        <option value="baby_products">baby_products</option>
+                        <option value="apparel&accessories">apparel&accessories</option>
+                        <option value="toys&games">toys&games</option>
+                        <option value="school_essentials">school_essentials</option>
+
+                    </select>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </ul>
+
+
+</div>
+<div>
+    <span style="font-size:25px;cursor:pointer; " (click)="openNav()">&#9776;</span>
+</div>
