@@ -1,0 +1,73 @@
+<h1>POST A BLOG</h1>
+<div class="form-wrapper">
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" formControlName="title" id="title" />
+        </div>
+
+        <div class="form-group coupon">
+            <label>Coupon:</label>
+            <div class="radio-group">
+                <label id="label1">
+                    <input type="radio" formControlName="coupon" [value]="true" />
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" formControlName="coupon" [value]="false" />
+                    No
+                </label>
+            </div>
+        </div>
+
+        <div formArrayName="subheadingsAndContents">
+            <div *ngFor="let group of subheadingsAndContents.controls; let i = index">
+                <div class="form-group">
+                    <label for="subheading{{ i }}">Subheading:</label>
+                    <input type="text" [formControl]="getSubheadingControl(i)!" [id]="'subheading' + i" />
+                </div>
+
+                <div class="form-group">
+                    <label for="content{{ i }}">Content:</label>
+                    <textarea [formControl]="getContentControl(i)" [id]="'content' + i" (input)="autoResize($event)"
+                        rows="1"></textarea>
+                </div>
+
+                <div class="AR">
+                    <div class="rmv">
+                        <button *ngIf="i > 0" class="remove" type="button"
+                            (click)="removeSubheadingAndContent(i)">Remove</button>
+                    </div>
+                        <div class="add">
+                            <button class="add-more" type="button" (click)="addSubheadingAndContent()">Add More</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <label for="itemUrl">Item URL:</label>
+            <input type="text" formControlName="itemUrl" id="itemUrl" />
+        </div>
+
+        <div class="form-group">
+            <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                <label for="image">Image:</label> <p style="color: tomato;font-size: small;">Prefered Dimesions: (912px * 350px)</p>
+            </div>
+            
+            <div class="imgAndPrev">
+                <input type="file" (change)="handleImageUpload($event)" id="image" />
+
+            <!-- <div class="image-preview">
+                <img *ngIf="myForm.get('image')?.value" [src]="getImagePreview()" alt="Image Preview" />
+            </div> -->
+            </div>
+
+        </div>
+
+        <button type="submit" class="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>
+

@@ -10,6 +10,19 @@
         <hr>
         <li>
             <div class="modal-header">
+                <button class="btn" routerLink="createblog" routerLinkActive="active">
+                    Add Blog </button>
+            </div>
+        </li>
+        <li>
+            <div class="modal-header">
+                <button class="btn" routerLink="blogs" routerLinkActive="active">
+                    Blogs </button>
+            </div>
+        </li>
+        <hr>
+        <li>
+            <div class="modal-header">
                 <button class="btn" (click)="openAddPosterpopup()">
                     Add Poster </button>
             </div>
@@ -20,6 +33,7 @@
                     Posters </button>
             </div>
         </li>
+        <hr>
         <li>
             <div class="modal-header">
                 <button class="btn" (click)="openAddWebsitePopup()">
@@ -289,7 +303,10 @@
         </div>
 
     </ul>
-
+<!-- 
+    <div class="closebtn" (click)="closeNav()">
+        <span class="right-arrow" (click)="openNav()">→</span>
+    </div> -->
 
 </div>
 <div>

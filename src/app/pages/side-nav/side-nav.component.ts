@@ -43,7 +43,6 @@ export class SideNavComponent implements OnInit {
   }
 
 
-
   //poster
   openAddPosterpopup() {
     const modalRef = this.modalService.open(AddPosterPopupComponent, {

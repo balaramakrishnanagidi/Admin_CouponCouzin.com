@@ -1,0 +1,50 @@
+<!-- <img [src]="profile
+                ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0]
+                : '/img/avatars/3.png'" alt="image"/> -->
+
+<div class="container-fluid">
+    <div class="header">
+        <h1> All Blogs </h1>
+    </div>
+
+    <div class="row">
+        <div class="main">
+            <div *ngFor="let post of blogData" class="card">
+                <h2>{{ post.title }}</h2>
+                <h6>{{ post.createdAt | date: 'medium' }}</h6>
+                <div class="image">
+                    <img [src]="profile
+                        ? 'https://couponcouzin.com/backend/couponcouzin/app/src/blogs/' + post.image[0]
+                        : '/img/avatars/3.png'" alt="image" />
+                </div>
+                <div class="subAndContent">
+                    <div *ngFor="let content of post.contents" class="content">
+                        <h4>{{ content.subheading }}</h4>
+                        <p>{{ content.content }}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-info" disabled="true" style="color: aliceblue;"> Edit </button>
+                    <button class="btn btn-danger" (click)="delete_blog(post._id)"> Delete </button>
+                </div>
+
+                <!-- <div class="comments" *ngIf="commentsMap.has(post._id) && commentsMap.get(post._id)">
+                    <h3>Comments</h3>
+                    <div class="card" *ngFor="let comment of commentsMap.get(post._id) | keyvalue">
+                      <div class="card-body">
+                        <div class="nameAndImage">
+                          <img src="../../../assets/no-avatar-300x300.png">
+                          <p>{{ comment.value.name }} commented as: </p>
+                        </div>
+                        <div class="text">
+                          <p id="mimic">{{ comment.value.text }}</p>
+                        </div>
+                        <p style="font-size: x-small; color: rgb(0, 137, 250);"> <u><i>{{ comment.value.createdAt | date: 'medium' }}</i></u>
+                        </p>
+                      </div>
+                    </div>
+                  </div> -->
+            </div>
+        </div>
+    </div>
+</div>
