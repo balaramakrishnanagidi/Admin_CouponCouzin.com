@@ -17,7 +17,8 @@ export class AllcouponsComponent implements OnInit {
 
   fetchAllCoupons(){
     this.api.getAllCoupons().subscribe(data => {
-      this.allCoupons = data.posts.reverse();
+      this.allCoupons = data.posts
+      // .reverse();
     },
       error => {
         console.error(error)
@@ -27,8 +28,8 @@ export class AllcouponsComponent implements OnInit {
   deletePost(postId: string) {
 
     this.api.deletePost(postId).subscribe(data => {
-      alert('Product Deleted SuccessFully!')
-      window.location.reload();
+      alert('Coupon Deleted SuccessFully!')
+      // window.location.reload();
     },
       error => {
         if (error) {

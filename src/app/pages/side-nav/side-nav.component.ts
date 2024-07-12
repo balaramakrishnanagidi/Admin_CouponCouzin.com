@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrService } from 'ngx-toastr';
 import { AddCouponPopupComponent } from 'src/app/shared/components/add-coupon-popup/add-coupon-popup.component';
 import { AddPosterPopupComponent } from 'src/app/shared/components/add-poster-popup/add-poster-popup.component';
 import { AddProductPopupComponent } from 'src/app/shared/components/add-product-popup/add-product-popup.component';

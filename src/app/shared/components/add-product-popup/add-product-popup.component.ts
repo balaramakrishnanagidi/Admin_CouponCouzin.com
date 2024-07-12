@@ -126,7 +126,7 @@ export class AddProductPopupComponent implements OnInit{
       ],
       camera: [
         { id: 53, name: 'cameras' },
-        { id: 54, name: 'camers_accessories' }
+        { id: 54, name: 'cameras_accessories' }
       ],
       kids: [
         { id: 55, name: 'baby_products' },

@@ -25,7 +25,7 @@ export class AllProductsComponent implements OnInit{
 
   fetchAllProducts(){
     this.api.getAllProducts().subscribe(data => {
-      this.allProducts = data.posts.reverse();
+      this.allProducts = data.posts;
     },
     error => {
       console.error(error)
@@ -39,7 +39,7 @@ export class AllProductsComponent implements OnInit{
       // alert('Product Deleted SuccessFully!')
       // this.toastrService.success('success!', 'post deleted successfully')
       this.router.navigate(['/allproducts']);
-      window.location.reload();
+      // window.location.reload();
     },
       error => {
         if (error) {
