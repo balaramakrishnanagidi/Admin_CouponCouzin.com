@@ -59,7 +59,7 @@
   @media screen and (max-width: 800px) {
     .container-fluid{
         width: 100%;
-    };
+    }
     .main {
       width: 100%;
       padding: 0;
