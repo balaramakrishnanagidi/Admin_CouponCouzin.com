@@ -30,6 +30,10 @@ export class CreateblogComponent {
       itemUrl: ['', Validators.required],
       subheadingsAndContents: this.fb.array([]),
       image: [null, Validators.required],
+      metaTitle: ['', Validators.required],
+      metaDescription: ['', Validators.required],
+      primaryKeyword: ['', Validators.required],
+      secondaryKeyword: ['', Validators.required],
     });
   }
 
@@ -84,6 +88,13 @@ export class CreateblogComponent {
     return null;
   }
 
+  canAddMore(): boolean {
+    const lastIndex = this.subheadingsAndContents.length - 1;
+    const lastSubheading = this.getSubheadingControl(lastIndex);
+    const lastContent = this.getContentControl(lastIndex);
+    return lastSubheading?.value && lastContent?.value;
+  }
+
   submitForm() {
    if (this.myForm.valid) {
       const formData = new FormData();
@@ -92,6 +103,11 @@ export class CreateblogComponent {
       formData.append('coupon', this.myForm.get('coupon')!.value);
       formData.append('itemUrl', this.myForm.get('itemUrl')!.value);
       formData.append('image', this.myForm.get('image')!.value);
+      formData.append('metaTitle', this.myForm.get('metaTitle')!.value);
+      formData.append('metaDescription', this.myForm.get('metaDescription')!.value);
+      formData.append('primaryKeyword', this.myForm.get('primaryKeyword')!.value);
+      formData.append('secondaryKeyword', this.myForm.get('secondaryKeyword')!.value);
+      
   
       const subheadingsAndContentsArray = this.subheadingsAndContents.value.map((item: any) => ({
         subheading: item.subheading,
@@ -100,10 +116,10 @@ export class CreateblogComponent {
   
       // Convert array to JSON string and append as a single field
       formData.append('contents', JSON.stringify(subheadingsAndContentsArray));
-      console.log(formData.get('contents'));
+      // console.log(formData.get('contents'));
       
       this.api.post_blog(formData).subscribe(
-        (response) => console.log({ message: 'form submitted!', response }),
+        (response) => console.log({ message: 'form submitted!'}),
         (error) => console.log(error)
       );
     }

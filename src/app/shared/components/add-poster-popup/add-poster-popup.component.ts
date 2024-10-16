@@ -9,9 +9,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddPosterPopupComponent {
   imagePreview: any;
   poster = { image: null, url: '' };
-  constructor(
-    public activeModal: NgbActiveModal,
-  ) { }
+  
+  constructor( public activeModal: NgbActiveModal ) { }
 
   handleImageUpload(event: any) {
     const file = event.target.files[0];
@@ -34,8 +33,8 @@ export class AddPosterPopupComponent {
       // Handle the case where either image or URL is missing
       alert('Both image and URL are required.');
     }
-      setTimeout(() => {
-        window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
     }, 1200);
   }
 

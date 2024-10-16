@@ -23,12 +23,16 @@ export class BlogsComponent implements OnInit {
         this.blogData = this.blogData.reverse();
       }
     },
-    error => {
-      console.log(error);
-    });
+      error => {
+        console.log(error);
+      });
   }
 
-   delete_blog(blogId: string) {
+  edit_blog(blogId: string) {
+    this.router.navigate(['/update_blog', blogId]);
+  }
+
+  delete_blog(blogId: string) {
     this.api.deleteBlog(blogId).subscribe(response => {
       window.location.reload();
     },

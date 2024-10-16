@@ -39,7 +39,7 @@
                             (click)="removeSubheadingAndContent(i)">Remove</button>
                     </div>
                         <div class="add">
-                            <button class="add-more" type="button" (click)="addSubheadingAndContent()">Add More</button>
+                            <button class="add-more" type="button" [disabled]="!canAddMore()" (click)="addSubheadingAndContent()">Add More</button>
                         </div>
                 </div>
             </div>
@@ -63,6 +63,23 @@
             <!-- <div class="image-preview">
                 <img *ngIf="myForm.get('image')?.value" [src]="getImagePreview()" alt="Image Preview" />
             </div> -->
+            </div>
+        
+            <div class="form-group">
+                <label for="metaTitle">Meta title:</label>
+                <input type="text" formControlName="metaTitle" id="metaTitle" />
+            </div>
+            <div class="form-group">
+                <label for="metaDescription">Meta Description:</label>
+                <input type="text" formControlName="metaDescription" id="metaDescription" />
+            </div>
+            <div class="form-group">
+                <label for="primaryKeyword">Primary Keyword:</label>
+                <input type="text" formControlName="primaryKeyword" id="primaryKeyword" />
+            </div>
+            <div class="form-group">
+                <label for="secondaryKeyword">Secondary Keywords:</label>
+                <input type="text" formControlName="secondaryKeyword" id="secondaryKeyword" />
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 <div class="popup-container md-2">
     <h2 style="padding-left: 35%;">Add Coupon</h2>
-    <form (ngSubmit)="submitForm()">
+    <form #couponForm="ngForm" (ngSubmit)="submitForm()">
         <label for="name" class="required"> <b> Coupon Name: </b> </label>
         <input type="text" id="name" name="Name" [(ngModel)]="coupon.Name" required>
 
@@ -50,7 +50,18 @@
             <input type="radio" name="status" value="inactive" [(ngModel)]="coupon.status" required> Inactive
         </label>
 
+        <label for="metaTitle" class="required"><b>Meta Title:</b></label>
+        <input type="text" id="metaTitle" name="metaTitle" [(ngModel)]="coupon.metaTitle" required>
 
-        <button class="btn btn-primary mt-3">Add</button>
+        <label for="metaDescription" class="required"><b>Meta Description:</b></label>
+        <input type="text" id="metaDescription" name="metaDescription" [(ngModel)]="coupon.metaDescription" required>
+
+        <label for="primaryKeyword" class="required"><b>Primary Keyword:</b></label>
+        <input type="text" id="primaryKeyword" name="primaryKeyword" [(ngModel)]="coupon.primaryKeyword" required>
+
+        <label for="secondaryKeyword" class="required"><b>Secondary Keyword:</b></label>
+        <input type="text" id="secondaryKeyword" name="secondaryKeyword" [(ngModel)]="coupon.secondaryKeyword" required>
+
+        <button class="btn btn-primary mt-3" [disabled]="couponForm.invalid">Add</button>
     </form>
 </div>

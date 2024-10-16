@@ -1,16 +1,16 @@
 <div class="popup-container">
     <h2 style="padding-left: 35%;">Add Product</h2>
-    <form (ngSubmit)="submitForm()">
+    <form #productForm="ngForm" (ngSubmit)="submitForm()">
         <label for="name" class="required"> <b> Product Name With description: </b> </label>
         <input type="text" id="name" name="Name" [(ngModel)]="product.Name" required>
 
         <label for="image" class="required"> <b> Product Image: </b></label>
-            <div class="image-preview">
-                <input type="file" id="image" name="image" (change)="handleImageUpload($event)" accept="image/*">
-                <img *ngIf="product.image" [src]="imagePreview" alt="Image Preview">
-            </div>
-        <label for="url" class="required"><b>URL:</b></label>
-        <input type="url" id="url" name="urlpath" [(ngModel)]="product.urlpath" required>
+        <div class="image-preview">
+            <input type="file" id="image" name="image" (change)="handleImageUpload($event)" accept="image/*">
+            <img *ngIf="product.image" [src]="imagePreview" alt="Image Preview">
+        </div>
+        <label for="urlpath" class="required"><b>URL:</b></label>
+        <input type="url" id="urlpath" name="urlpath" [(ngModel)]="product.urlpath" required>
 
         <label for="price" class="required"> <b> price: </b> </label>
         <input type="text" id="Price" name="price" [(ngModel)]="product.price" required>
@@ -19,29 +19,26 @@
         <input type="text" id="discount" name="discount" [(ngModel)]="product.discount" required>
 
         <label for="category" class="required"><b>Category:</b></label>
-<select id="category" name="categorys" [(ngModel)]="product.maincategory" (change)="categoryChange()" required>
-    <option value="food">Food & Dining</option>
-    <option value="fashion">Fashion</option>
-    <option value="travel">Travel</option>
-    <option value="tv">TV,Audio/Video & Movies</option>
-    <option value="mobiles">Mobiles & Tablets</option>
-    <option value="beauty">Beauty & Health</option>
-    <option value="computer">Computers,Laptops & Gaming</option>
-    <option value="recharge">Recharge</option>
-    <option value="appliances">Appliances</option>
-    <option value="entertainment">Entertainment</option>
-    <option value="camera">Cameras & Accessories</option>
-    <option value="kids">Kids,Babies & Toys</option>
-</select>
+        <select id="category" name="categorys" [(ngModel)]="product.maincategory" (change)="categoryChange()" required>
+            <option value="food">Food & Dining</option>
+            <option value="fashion">Fashion</option>
+            <option value="travel">Travel</option>
+            <option value="tv">TV,Audio/Video & Movies</option>
+            <option value="mobiles">Mobiles & Tablets</option>
+            <option value="beauty">Beauty & Health</option>
+            <option value="computer">Computers,Laptops & Gaming</option>
+            <option value="recharge">Recharge</option>
+            <option value="appliances">Appliances</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="camera">Cameras & Accessories</option>
+            <option value="kids">Kids,Babies & Toys</option>
+        </select>
 
 
-<label for="subcategory" class="required"><b>Subcategory:</b></label>
-<select id="subcategory" name="subcategory" [(ngModel)]="product.subcategory" required>
-    <option *ngFor="let subcategory of subcategories" [value]="subcategory.name">{{ subcategory.name }}</option>
-</select>
-
-
-
+        <label for="subcategory" class="required"><b>Subcategory:</b></label>
+        <select id="subcategory" name="subcategory" [(ngModel)]="product.subcategory" required>
+            <option *ngFor="let subcategory of subcategories" [value]="subcategory.name">{{ subcategory.name }}</option>
+        </select>
 
         <label for="company" class="required"><b>Company:</b></label>
         <select id="company" name="company" [(ngModel)]="product.company" required>
@@ -53,8 +50,20 @@
             <input type="radio" name="status" value="active" [(ngModel)]="product.status" required> Active
             <input type="radio" name="status" value="inactive" [(ngModel)]="product.status" required> Inactive
         </label>
-        
-        
-        <button class="btn btn-primary mt-3" >Add</button>
+
+        <label for="metaTitle" class="required"><b>Meta Title:</b></label>
+        <input type="text" id="metaTitle" name="metaTitle" [(ngModel)]="product.metaTitle" required>
+
+        <label for="metaDescription" class="required"><b>Meta Description:</b></label>
+        <input type="text" id="metaDescription" name="metaDescription" [(ngModel)]="product.metaDescription" required>
+
+        <label for="primaryKeyword" class="required"><b>Primary Keyword:</b></label>
+        <input type="text" id="primaryKeyword" name="primaryKeyword" [(ngModel)]="product.primaryKeyword" required>
+
+        <label for="secondaryKeyword" class="required"><b>Secondary Keyword:</b></label>
+        <input type="text" id="secondaryKeyword" name="secondaryKeyword" [(ngModel)]="product.secondaryKeyword" required>
+
+
+        <button class="btn btn-primary mt-3" [disabled]="productForm.invalid">Add</button>
     </form>
 </div>

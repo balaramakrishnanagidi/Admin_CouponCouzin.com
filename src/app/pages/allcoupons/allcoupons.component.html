@@ -9,27 +9,31 @@
                 <th scope="col">Company</th>
                 <th scope="col">Category</th>
                 <th scope="col">Sub-Category</th>
-                <th scope="col">Status</th>
-                <th scope="col">Delete</th>
-                
-
-                
-
+                <!-- <th scope="col">Status</th> -->
+                <th scope="col">SEO title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Pri-Key</th>
+                <th scope="col">Sec-Key</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of allCoupons; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>{{ item.Name }}</td>              
+                <td>{{ item.Name }}</td>
                 <td>{{ item.description}}</td>
                 <td>{{ item.couponcode}}</td>
                 <td>{{ item.company }}</td>
                 <td>{{ item.maincategory }}</td>
                 <td>{{ item.categorys }}</td>
-                <td>{{ item.status}} </td>
-                <td> <button class="btn" (click)="deletePost(item._id)"> 
-                    <img src="/assets/bin.png" height="25" width="25" >
-                      </button> 
+                <!-- <td>{{ item.status}} </td> -->
+                <td>{{ item.metaTitle}}</td>
+                <td>{{ item.metaDescription }}</td>
+                <td>{{ item.primaryKeyword }}</td>
+                <td>{{ item.secondaryKeyword }}</td>
+                <td> <button class="btn" (click)="deletePost(item._id)">
+                        <img src="/assets/bin.png" height="25" width="25">
+                    </button>
                 </td>
             </tr>
         </tbody>

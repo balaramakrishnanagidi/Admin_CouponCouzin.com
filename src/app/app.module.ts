@@ -24,6 +24,7 @@ import { PostersComponent } from './pages/posters/posters.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { CreateblogComponent } from './pages/createblog/createblog.component';
+import { UpdateBlogComponentComponent } from './pages/update-blog-component/update-blog-component.component';
 
 
 
@@ -48,6 +49,7 @@ import { CreateblogComponent } from './pages/createblog/createblog.component';
     PostersComponent,
     BlogsComponent,
     CreateblogComponent,
+    UpdateBlogComponentComponent,
   
   
   ],

@@ -29,7 +29,12 @@ export class AddCouponPopupComponent {
              categorys: '',
              company: '',
              description: '', 
-             status: '' };
+             status: '',
+             metaTitle: '',
+             metaDescription: '',
+             primaryKeyword: '',
+             secondaryKeyword: '' 
+            };
   websites: any[] = [];
   subcategories: any[] = [];          
 
@@ -137,7 +142,6 @@ export class AddCouponPopupComponent {
         { id: 57, name: 'toys&games' },
         { id: 58, name: 'school_essentials' }
       ]
-      // Add more category-subcategory mappings
     };
 
   
@@ -145,8 +149,6 @@ export class AddCouponPopupComponent {
     const selectedCategory = this.coupon.maincategory;
     this.subcategories = this.categorySubcategories[selectedCategory] || [];
   }
-
-
 
 
   // handleImageUpload(event: any) {

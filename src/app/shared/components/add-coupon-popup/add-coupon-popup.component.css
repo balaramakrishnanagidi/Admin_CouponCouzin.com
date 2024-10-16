@@ -1,31 +1,44 @@
+/* Popup Container */
 .popup-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Ensure it doesn't overflow on small screens */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevent content overflow */
 }
 
+/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
 }
 
+/* Label Styling */
 label {
     margin-top: 10px;
+    font-weight: 350; /* Make labels bold */
 }
 
+/* Input Styling */
 input[type="text"],
-input[type="url"] {
+input[type="url"],
+input[type="file"],
+select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-top: 5px;
+    width: 100%; /* Full width for inputs */
 }
 
+/* File Input */
 input[type="file"] {
     margin-top: 5px;
 }
 
+/* Submit Button */
 button[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -34,15 +47,18 @@ button[type="submit"] {
     cursor: pointer;
     border-radius: 3px;
     margin-top: 10px;
+    width: 100%; /* Full width for button */
 }
 
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Image Preview */
 .image-preview {
     position: relative;
     display: inline-block;
+    margin-top: 10px;
 }
 
 .image-preview img {
@@ -51,7 +67,60 @@ button[type="submit"]:hover {
     border-radius: 2%;
     margin-left: 10px;
 }
+
+/* Required Fields Indicator */
 .required::after {
     content: ' *';
     color: red;
-  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .popup-container {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="file"],
+    select {
+        padding: 6px;
+        margin-top: 4px;
+    }
+
+    button[type="submit"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .image-preview img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="file"],
+    select {
+        padding: 4px;
+        margin-top: 3px;
+    }
+
+    button[type="submit"] {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .image-preview img {
+        height: 50px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}

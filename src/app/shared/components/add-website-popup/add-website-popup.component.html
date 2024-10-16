@@ -1,6 +1,6 @@
 <div class="popup-container">
     <h2>Add Website</h2>
-    <form (ngSubmit)="submitForm()">
+    <form #websiteForm="ngForm" (ngSubmit)="submitForm()">
         <label for="name"> <b> WEBSITE NAME: </b> </label>
         
             <input type="text" id="name" name="Name" style="width: 100%;"
@@ -16,6 +16,6 @@
         <label for="url"><b>URL:</b></label>
         <input type="url" id="urlpath" name="urlpath" [(ngModel)]="website.urlpath" required>
         <label for="url_input" style="padding-left: 10px;"> *URL is required </label>
-        <button type="submit" type="submit" >Add</button>
+        <button type="submit" type="submit" [disabled]="websiteForm.invalid" >Add</button>
     </form>
 </div>

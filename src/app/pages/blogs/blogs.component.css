@@ -1,68 +1,135 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  .container-fluid {
-    font-family: Arial;
-    padding: 20px;
-    background: #f1f1f1;
-    width: 60%;
-  }
-  
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f1f1f1;
+  width: 80%;
+  max-width: 1200px; /* Optional: Limits the width on large screens */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+.header {
+  padding: 30px;
+  font-size: 2.5em; /* Responsive font size */
+  text-align: center;
+  background: white;
+}
+
+.main {
+  width: 100%;
+}
+
+.image {
+  background-color: #ffffff;
+  max-height: 300px;
+  max-width: 100%;
+  overflow: hidden; /* Ensures images do not overflow */
+}
+
+.image img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover; /* Adjust if needed */
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.subAndContent {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.content {
+  margin-bottom: 10px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.buttons button {
+  margin-left: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
   .header {
-    padding: 30px;
-    font-size: 40px;
-    text-align: center;
-    background: white;
+      font-size: 2em;
   }
-  
-  .main {
-    width: 100%;
+}
+
+@media (max-width: 992px) {
+  .container-fluid {
+      padding: 15px;
   }
-  
-  .image {
-    background-color: #ffffff;
-    max-height: 300px;
-    max-width: 800px;
+  .header {
+      font-size: 1.8em;
   }
-  
   .image img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: contain;
+      max-height: 150px;
   }
-  
-  .card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .subAndContent {
-    margin-top: 20px;
-  }
-  
-  .content {
-    margin-bottom: 10px;
-  }
-  
   .buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
+      flex-direction: column;
+      align-items: flex-end;
   }
-  
   .buttons button {
-    margin-left: 5px;
+      margin-top: 5px;
+      margin-left: 0;
   }
-  
-  @media screen and (max-width: 800px) {
-    .container-fluid{
-        width: 100%;
-    }
-    .main {
-      width: 100%;
-      padding: 0;
-    }
+}
+
+@media (max-width: 768px) {
+  .header {
+      font-size: 1.5em;
   }
-  
+  .image img {
+      max-height: 120px;
+  }
+  .card {
+      padding: 15px;
+  }
+  .subAndContent {
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+      font-size: 1.2em;
+      padding: 20px;
+  }
+  .image img {
+      max-height: 100px;
+  }
+  .card {
+      padding: 10px;
+  }
+  .subAndContent {
+      font-size: 0.8em;
+  }
+}

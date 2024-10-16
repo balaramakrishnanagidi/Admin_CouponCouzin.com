@@ -4,7 +4,7 @@ h1{
 }
 
 .form-wrapper {
-    max-width: 600px;
+    max-width: 60%;
     margin: auto;
 }
 
@@ -87,12 +87,16 @@ button:hover {
 }
 
 button.add-more, button.remove {
-    width: 48%;
+    width: 30%;
     
 }
 
 button.add-more {
     background-color: #12700f;
+}
+
+button.add-more:disabled {
+    background-color: #5eaa5b;
 }
 
 button.remove {

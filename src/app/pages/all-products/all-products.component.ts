@@ -32,6 +32,10 @@ export class AllProductsComponent implements OnInit{
     });
   }
 
+  edit_post(postId: string) {
+
+  }
+
   deletePost(postId: string) {
 
     this.api.deletePost(postId).subscribe(data => {

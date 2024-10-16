@@ -1,4 +1,4 @@
-<div class="container md-2">
+<div class="container">
     <table class="table">
         <thead>
             <tr>
@@ -10,10 +10,12 @@
                 <th scope="col">Company</th>
                 <th scope="col">Category</th>
                 <th scope="col">Sub-Category</th>
-                <th scope="col">Status</th>
+                <!-- <th scope="col">Status</th> -->
+                <th scope="col">SEO title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Pri-Key</th>
+                <th scope="col">Sec-Key</th>
                 <th scope="col">Actions</th>
-
-
             </tr>
         </thead>
         <tbody>
@@ -25,17 +27,26 @@
                             ? 'https://couponcouzin.com/backend/couponcouzin/app/src/posts/' + item.postimage
                             : '/assets/null_product.png'" alt="image" class="size-50 rounded-22 object-cover" />
                 </td>
-
                 <td>{{ item.price }}</td>
                 <td>{{ item.discount}}%</td>
                 <td>{{ item.company }}</td>
                 <td>{{ item.maincategory }}</td>
                 <td>{{ item.categorys }}</td>
-                <td>{{ item.status}} </td>
-                <td> <button class="btn" (click)="deletePost(item._id)" > 
-                    <img src="/assets/bin.png" height="25" width="25" >
-                    <!-- <i class="fa-solid fa-trash"></i> -->
-                      </button> 
+                <!-- <td>{{ item.status}} </td> -->
+                <td>{{ item.metaTitle}}</td>
+                <td>{{ item.metaDescription }}</td>
+                <td>{{ item.primaryKeyword }}</td>
+                <td>{{ item.secondaryKeyword }}</td>
+                <td>
+                    <div class="actions">
+                        <button class="btn" (click)="edit_post(item._id)">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn" (click)="deletePost(item._id)">
+                            <!-- <img src="/assets/bin.png" height="25" width="25" > -->
+                            <i class="fa fa-solid fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </td>
             </tr>
         </tbody>
