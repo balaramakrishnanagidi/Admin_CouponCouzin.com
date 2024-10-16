@@ -11,19 +11,18 @@ export class ApiService {
 
   // private baseurl = 'https://16.171.244.75:2023';
   // private baseurl = 'https://192.168.0.128:2023';
-  private baseurl = 'http://couponcouzin.com:2022';
+  private baseurl = 'https://couponcouzin.com:2023';
+  // private baseurl = 'http://192.168.0.112:2022';
 
 
   //post
 
   couponBycategory(category: string): Observable<any> {
-    console.log(category)
     return this.http.get(`${this.baseurl}/getcoupons/${category}`,)
   }
 
   addCoupon(coupon: any): Observable<any> {
-    const data = coupon;
-    return this.http.post(`${this.baseurl}/addcoupon`, data);
+    return this.http.post(`${this.baseurl}/addcoupon`, coupon);
   }
 
   addWebsite(website: FormData): Observable<any> {
@@ -33,16 +32,20 @@ export class ApiService {
   addPoster(poster: FormData): Observable<any> {
     return this.http.post(`${this.baseurl}/banner`, poster);
   }
-
+  
   addProduct(product: FormData): Observable<any> {
     return this.http.post(`${this.baseurl}/post`, product);
   }
   AllProducts(selected: any[]): Observable<any> {
-    return this.http.post(`${this.baseurl}/getallcategories`, selected)
+    return this.http.post(`${this.baseurl}/getallcategories`, selected);
   }
   adminLogin(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseurl}/login`, { email, password })
+    return this.http.post(`${this.baseurl}/login`, { email, password });
   }
+  post_blog(blogForm: FormData): Observable<any> {
+    return this.http.post(`${this.baseurl}/write_blog`, blogForm);
+  }
+
 
   //get
   getAllProducts(): Observable<any> {
@@ -61,8 +64,6 @@ export class ApiService {
     return this.http.get(`${this.baseurl}/getallcoupons`);
   }
 
-
-
   totalWebsites(): Observable<any> {
     return this.http.get(`${this.baseurl}/totalwebsites`);
   }
@@ -75,7 +76,6 @@ export class ApiService {
     return this.http.get(`${this.baseurl}/newproductcount`);
   }
 
-
   totalCoupons(): Observable<any> {
     return this.http.get(`${this.baseurl}/totalCoupons`);
   }
@@ -83,6 +83,17 @@ export class ApiService {
   newCoupons(): Observable<any> {
     return this.http.get(`${this.baseurl}/newcouponcount`);
   }
+  fetch_blogs(): Observable<any> {
+    return this.http.get(`${this.baseurl}/blogs`);
+  }
+  fetch_blog_by_id(blogId: string): Observable<any> {
+    return this.http.get(`${this.baseurl}/blog_by_id/${blogId}`);
+  }
+
+  // fetch_comments(blogId: string): Observable<any> {
+  //   return this.http.get(`${this.baseurl}/get_comments/${blogId}`)
+  // }
+
 
   //put
 
@@ -90,6 +101,12 @@ export class ApiService {
     const body = { postId, status };
     return this.http.put(`${this.baseurl}/statusupdate/${postId}`, body);
   }
+
+  update_blog(blogId: string, blogForm: FormData): Observable<any> {
+    console.log(blogForm);
+    return this.http.put(`${this.baseurl}/update_blog/${blogId}`, blogForm);
+  }
+
 
   //delete
   deletePoster(posterId: string): Observable<any> {
@@ -100,5 +117,8 @@ export class ApiService {
   }
   deletePost(postId: string): Observable<any> {
     return this.http.delete(`${this.baseurl}/deletepost/${postId}`)
+  }
+  deleteBlog(blogId: string): Observable<any> {
+    return this.http.delete(`${this.baseurl}/delete_blog/${blogId}`)
   }
 }

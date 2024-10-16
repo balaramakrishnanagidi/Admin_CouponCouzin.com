@@ -1,7 +1,5 @@
 .container{
-    margin-left: 55px;
-    margin-top: 20px;
-    margin-right: 30px;
+   width: 100%;
 }
 .table{
     text-align: center;

@@ -10,6 +10,9 @@ import { authGuard } from './shared/service/auth.guard';
 import { AllcouponsComponent } from './pages/allcoupons/allcoupons.component';
 import { GetCouponsComponent } from './pages/get-coupons/get-coupons.component';
 import { PostersComponent } from './pages/posters/posters.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { CreateblogComponent } from './pages/createblog/createblog.component';
+import { UpdateBlogComponentComponent } from './pages/update-blog-component/update-blog-component.component';
 
 const routes: Routes = [
   
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path: 'allcoupons', component: AllcouponsComponent, canActivate: [authGuard]},
   {path: 'getcoupons/:category', component: GetCouponsComponent, canActivate: [authGuard]},
   {path: 'posters', component: PostersComponent, canActivate: [authGuard]},
+  {path: 'blogs', component: BlogsComponent, canActivate: [authGuard]},
+  {path: 'createblog', component: CreateblogComponent, canActivate: [authGuard]},
+  {path: 'update_blog/:id', component: UpdateBlogComponentComponent, canActivate: [authGuard]},
   {path:'', pathMatch: 'full', component: LoginComponent},
   {path:'login', component: LoginComponent},
   {path: '**', redirectTo: 'login'},

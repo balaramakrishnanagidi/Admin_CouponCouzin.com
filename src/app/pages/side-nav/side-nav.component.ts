@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrService } from 'ngx-toastr';
 import { AddCouponPopupComponent } from 'src/app/shared/components/add-coupon-popup/add-coupon-popup.component';
 import { AddPosterPopupComponent } from 'src/app/shared/components/add-poster-popup/add-poster-popup.component';
 import { AddProductPopupComponent } from 'src/app/shared/components/add-product-popup/add-product-popup.component';
@@ -21,9 +20,14 @@ export class SideNavComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private api: ApiService,
-    private router: Router
-  ) {
+    private router: Router ) {
 
+     // Listen to route changes and close the sidebar after navigation
+      router.events.subscribe((event) => {
+        if(event instanceof NavigationEnd) {
+          this.closeNav();
+        }
+      })
   }
 
   ngOnInit(): void {
@@ -42,12 +46,34 @@ export class SideNavComponent implements OnInit {
     this.isSideNavOpen = false;
   }
 
+  // HostListener to listen for clicks on navigation items (links or buttons)
+  @HostListener('click',['$event'])
+  onSideBarClick(event: MouseEvent) {
+    const elementClicked = event.target as HTMLElement;
 
+    // Filter for elements that should trigger closing (links, buttons)
+    if(elementClicked.matches('a[routerLink], button[RouterLink], button.nav-item')) {
+      this.closeNav();
+    }
+  }
+
+
+  
 
   //poster
   openAddPosterpopup() {
+
+    const screenWidth = window.innerWidth;
+    let modalSize: 'sm' | 'lg' | 'xl' | 'md' = 'md'; // Default size
+  
+    if (screenWidth < 576) {
+      modalSize = 'sm'; // Small screens
+    } else {
+      modalSize = 'md'; // Medium screens
+    } 
+
     const modalRef = this.modalService.open(AddPosterPopupComponent, {
-      size: 'md'
+      size: modalSize
     });
 
     modalRef.result.then((formData) => {
@@ -131,6 +157,11 @@ export class SideNavComponent implements OnInit {
     formData1.append('categorys', ProductData.subcategory);
     formData1.append('company', ProductData.company);
     formData1.append('status', ProductData.status);
+    formData1.append('metaTitle', ProductData.metaTitle);
+    formData1.append('metaDescription', ProductData.metaDescription);
+    formData1.append('primaryKeyword', ProductData.primaryKeyword);
+    formData1.append('secondaryKeyword', ProductData.secondaryKeyword);
+
 
 
 

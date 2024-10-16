@@ -8,7 +8,7 @@
     <input type="text" [(ngModel)]="poster.url" name="url" class="form-control" placeholder="URL" />
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" (click)="submitForm()">Add Poster</button>
+    <button class="btn btn-primary" [disabled]="!poster.image || !poster.url" (click)="submitForm()">Add Poster</button>
     <button class="btn btn-secondary" (click)="activeModal.dismiss('Cancel')">Cancel</button>
   </div>
 

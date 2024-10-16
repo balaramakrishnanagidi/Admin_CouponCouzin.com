@@ -2,10 +2,23 @@
 
     <ul>
         <li>
-            <a routerLink="home" routerLinkActive="active">
+            <a routerLink="home" routerLinkActive="active" (click)="closeNav()">
                 <h3> Dashboard</h3>
             </a>
             <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        </li>
+        <hr>
+        <li>
+            <div class="modal-header">
+                <button class="btn" routerLink="createblog" routerLinkActive="active">
+                    Add Blog </button>
+            </div>
+        </li>
+        <li>
+            <div class="modal-header">
+                <button class="btn" routerLink="blogs" routerLinkActive="active">
+                    Blogs </button>
+            </div>
         </li>
         <hr>
         <li>
@@ -20,6 +33,7 @@
                     Posters </button>
             </div>
         </li>
+        <hr>
         <li>
             <div class="modal-header">
                 <button class="btn" (click)="openAddWebsitePopup()">
@@ -289,7 +303,10 @@
         </div>
 
     </ul>
-
+<!-- 
+    <div class="closebtn" (click)="closeNav()">
+        <span class="right-arrow" (click)="openNav()">→</span>
+    </div> -->
 
 </div>
 <div>

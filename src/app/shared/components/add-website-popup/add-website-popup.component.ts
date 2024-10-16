@@ -12,10 +12,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddWebsitePopupComponent {
   imagePreview: any;
   website = { Name: '', urlpath: '', image: null };
-  constructor(
-    public activeModal: NgbActiveModal,
-    private router: Router
-  ) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   handleImageUpload(event: any) {
     const file = event.target.files[0];
@@ -23,16 +20,16 @@ export class AddWebsitePopupComponent {
 
     //image preview
     const reader = new FileReader();
-        reader.onload = (e: any) => {
-            this.imagePreview = e.target.result;
-        };
-        reader.readAsDataURL(file);
+    reader.onload = (e: any) => {
+      this.imagePreview = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
-  submitForm(){
+  submitForm() {
     this.activeModal.close(this.website);
     setTimeout(() => {
       window.location.reload();
-  }, 2000);
+    }, 2000);
   }
 
 }

@@ -1,5 +1,6 @@
 .container{
     background-color: transparent;
+    width: 100%;
 }
 
 .container .table.table-hover{

@@ -20,11 +20,11 @@ export class AuthService {
   }
 
   // login api
-  private baseUrl = 'http://couponcouzin.com:2022';
+  private baseUrl = 'https://couponcouzin.com:2023';
 
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
-    console.log(email + ' ' + password);
+    // console.log(email + ' ' + password);
     
     // Make the HTTP POST request to the login endpoint
     return this.http.post(`${this.baseUrl}/login`, loginData);
